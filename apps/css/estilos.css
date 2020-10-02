@@ -1,0 +1,34 @@
+h2{
+    color: red
+}
+#unico{
+    color: green;
+    font-size: 200px;
+}
+.azul{
+    background: violet;
+}
+.nav{
+    background: rgb(123, 11, 1blue);
+}
+.columna{
+    background: pink;
+    padding: 2%;
+    width: 25%;
+    margin: 1%;
+}
+.padre{
+    display: flex;
+}
+button{
+    background: rebeccapurple;
+    color: lightblue;
+}
+button:hover{
+    background: black;
+    color: aqua;
+}
+button:active{
+    background: red;
+    color: salmon;
+}
