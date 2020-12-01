@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Frames</title>
+</head>
+<!--Frame Externo-->
+<!--Creamos un frame externo de 2 columnas-->
+<frameset cols="25%,*" frameborder="0" framespacing="0" border="0">
+    <frame src="navigation.html" name="navegacion"><!-- frame derecha, es otro frameset-->
+    <!--tiene dos renglones este frame-->
+    <frameset rows="30%,*" >
+        <!--frame superior-->
+        <frame src="title.html" name="titulo" scrolling="no">
+        <!--frame inferior-->
+        <frame src="initialContent.html" name="contenido">
+    </frameset>
+    <noframes>Esta es una pagina que no pudo mostrar los frames</noframes>
+</frameset>
+<body>
+    
+</body>
+</html>
