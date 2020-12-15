@@ -1,0 +1,66 @@
+<!-- https://html5test.com/ -->
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js"></script>
+    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/polyfiller.js"></script>
+    <script>$.webshims.polyfill();</script>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(){
+                alert("Formulario Validado");
+                return false;
+            });
+        });
+    </script>
+    <title>Formulario Contacto</title>
+</head>
+<body>
+    <header>
+        <h1>Formulario Web</h1>
+        <fieldset>
+            <legend>Detalles de Contacto</legend>
+            <form action="#">
+                <label for="name">Nombre:</label>
+                <input type="text" autofocus="" placeholder="Escribe tu nombre aqui" 
+                name="name" required="required" pattern="[a-zA-Z\s]{5,}">
+                <span class="invalid">
+                    *El nombre es requerido
+                </span>
+                <label for="email">Email:</label>
+                <input type="email" autofocus="" placeholder="Escriba su Correo Electronico"
+                name="email" required="">
+                <span class="invalid">
+                    *El correo es requerido
+                </span>
+                <label for="phone">Tel:</label>
+                <input type="tel" autofocus="" placeholder="Escriba su telefono"
+                name="phone" required="">
+                <span class="invalid">
+                    *El telefono es requerido
+                </span>
+                <label for="country">Pais:</label>
+                <input type="tel" list="countries" autofocus="" placeholder="Escriba/Selecciona su pais"
+                name="phone" required="">
+                <datalist id="countries">
+                    <option >Mexico</option>
+                    <option >Argentina</option>
+                    <option >Colombia</option>
+                    <option >Espa&nacute;a</option>
+                    <option >Otro...</option>
+                </datalist>
+                <label for="age">Edad:</label>
+                <input type="number" min="18" max="65" placeholder="Edad" name="age">
+                <label for="bdate">Fecha Nacimiento</label>
+                <input type="date" name="birth" min="1910-01-01" max="3000-12-31">
+                <label for="submit">Enviar</label>
+                <input type="submit" value="send" id="send">
+            </form>
+        </fieldset>
+    </header>
+</body>
+</html>

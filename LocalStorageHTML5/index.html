@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js"></script>
+    <!-- <script type="text/javascript">
+        if(Modernizr.localstorage){
+            alert("tu Navegador soporta local storage");
+        }else{
+            alert("tu Navegador no soporta local storage");
+        }
+    </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#lista").blur(function(){
+                localStorage.setItem("listado",$("#lista").html()); // similar a get element con $.document
+                location.reload();
+            });
+            if(localStorage.getItem("listado")){
+                $("#message").html("<h3>Datos almacenados en Local Storage: </h3>");
+                $("#lista").html(localStorage.getItem("listado"));
+                $("#result").text(localStorage.getItem("listado"));
+            }else{
+                $("#message").text("No hay datos en local storage");
+            };
+            $("#clear").click(function(){
+                localStorage.removeItem("listado");
+                localStorage.clear();
+                location.reload();
+            });
+
+            window.addEventListener("storage",escucharEvento(),false);
+
+            function escucharEvento(e){
+                alert("Evento generando local storage: "+ e.storageArea.listado);
+                location.reload();
+            }
+        });
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Local Storage</title>
+</head>
+<body>
+    <h1>Manejo de Local Storage</h1>
+    <div>
+        <ul id="lista" contenteditable="true">
+            <li></li>
+        </ul>
+    </div>
+    <input type="button" id="clear" value="clear">
+    <div id="message"></div>
+    <div id="result"></div>
+</body>
+</html>

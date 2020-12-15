@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+CACHE:
+index.html
+resultados.html
+http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
+afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js
+images/offline.jpeg
+
+
+FALLBACK:
+images/online.jpeg images/offline.jpeg 

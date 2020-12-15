@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js"></script>
+    <!-- <script type="text/javascript">
+        if(Modernizr.localstorage){
+            alert("tu Navegador soporta local storage");
+        }else{
+            alert("tu Navegador no soporta local storage");
+        }
+    </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            if(sessionStorage.getItem("listado")){
+                $("#message").html("<h3>Datos almacenados en Session Storage: </h3>");
+                $("#result").text(sessionStorage.getItem("listado"));
+            }else{
+                $("#message").text("No hay datos en Session storage");
+            };
+        });
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Resultados</title>
+</head>
+<body>
+    <h1>Resultados</h1>
+    <div id="message"></div>
+    <div id="result"></div>
+    <a href="index.html">Regresar al inicio</a>
+</body>
+</html>

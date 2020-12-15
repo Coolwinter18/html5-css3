@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js"></script>
+    <!-- <script type="text/javascript">
+        if(Modernizr.localstorage){
+            alert("tu Navegador soporta local storage");
+        }else{
+            alert("tu Navegador no soporta local storage");
+        }
+    </script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#lista").blur(function(){
+                sessionStorage.setItem("listado",$("#lista").html()); // similar a get element con $.document
+                location.reload();
+            });
+            if(sessionStorage.getItem("listado")){
+                $("#message").html("<h3>Datos almacenados en Session Storage: </h3>");
+                $("#lista").html(sessionStorage.getItem("listado"));
+                $("#result").text(sessionStorage.getItem("listado"));
+            }else{
+                $("#message").text("No hay datos en Session storage");
+            };
+            $("#clear").click(function(){
+                sessionStorage.removeItem("listado");
+                location.reload();
+            });
+        });
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de Session Storage</title>
+</head>
+<body>
+    <img src="images/online.jpeg" alt="">
+    <h1>Manejo de Session Storage</h1>
+    <div>
+        <ul id="lista" contenteditable="true">
+            <li></li>
+        </ul>
+    </div>
+    <input type="button" id="clear" value="clear">
+    <div id="message"></div>
+    <div id="result"></div>
+    <a href="resultados.html">Ir a resultados</a>
+</body>
+</html>
