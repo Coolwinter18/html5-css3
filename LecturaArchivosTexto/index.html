@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura Archivo HTML5</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!-- <script type="text/javascript">
+        if(Modernizr.draganddrop && window.FileList){
+            alert("tu navegador SI soporta el API File y Drag and Drop");
+        }else{
+            alert("No se soporta API File o Drag and Drop");
+        };
+    </script> -->
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#archivo").change(ManejoArchivos);
+        function ManejoArchivos(evento){
+            
+            var archivo = evento.target.files[0];
+            
+            if( archivo.type !== "text/plain"){
+                alert("Debe seleccionar un archivo de texto");
+                return;
+            }
+            
+            var reader = new FileReader();
+            
+            reader.onload = function(evento){
+            var resultadoTexto = evento.target.result;
+            $("#contenido").append(resultadoTexto);
+            };
+            
+            reader.readAsText(archivo);
+        };  
+    });
+    </script>
+</head>
+<body>
+    <h1>Lectura Archivo HTML5</h1>
+    <form>
+        <label for="archivo">Selecciona un archivo</label>
+        <input type="file" name="archivo" id="archivo">
+        <p>Contenido del Archivo</p>
+        <textarea name="texto" id="contenido" cols="100" rows="15"></textarea>
+    </form>
+</body>
+</html>

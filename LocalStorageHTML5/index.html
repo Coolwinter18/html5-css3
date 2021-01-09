@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="afarkas.github.io/webshim/demos/js-webshim/minified/extras/modernizr-custom.js"></script>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript">
         if(Modernizr.localstorage){
             alert("tu Navegador soporta local storage");
         }else{
             alert("tu Navegador no soporta local storage");
         }
-    </script> -->
+    </script>
 
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){
             $("#lista").blur(function(){
                 localStorage.setItem("listado",$("#lista").html()); // similar a get element con $.document
